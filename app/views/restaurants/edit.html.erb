@@ -1,0 +1,18 @@
+<% @page_title = "Update restaurant" %>
+
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="container">
+  <h2>Update Restaurant</h2>
+<%# for update we have to have a :id as well for saving that particular modification to the same racord that we choose%>
+<%# %>
+  <%= form_for(@restaurant, :url => update_restaurant_path(@restaurant)) do |f| %>
+<%# using partial template _form  for new and edit view%>
+    <%= render(:partial => "shared/form", :locals => {:f => f}) %>
+
+    <div class="form-buttons">
+      <%= submit_tag("Update Restaurant") %>
+    </div>
+
+  <% end %>
+</div>

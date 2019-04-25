@@ -1,0 +1,38 @@
+
+
+<div class="restaurant index" >
+  <h2>Restaurant</h2>
+
+   <%= link_to("Add New Restaurant", :action => 'new', :class => 'action new')%>
+  <table class="listing" summary="restaurant list">
+    <tr class="header">
+      
+      <th>Food_Type</th>
+      <th>Address</th>
+      <th>Description</th>
+      <th>Review</th>
+    </tr>
+    <% @restaurants.each do |restaurant| %>
+    <tr class="table" >
+      <td><%= restaurant.food_type %></td>
+      <%# <td><button data-toggle="collapse" data-target="#demo">Address</button>
+          <div class="collapse" id="demo">
+            <div class="card card-body">
+              <%= restaurant.address %>
+            <%# </div>
+          </div>
+      </td>  %>
+      <td><%= restaurant.address %></td>
+      <td class="center"><%= restaurant.description %></td>
+      <td class="center"><%= restaurant.reviews.count %></td>
+      <td class="actions">
+        
+        <button type="button" class="btn btn-info" style="color: black"><%= link_to "Show", restaurant_path(restaurant.id)%></button>
+        <button type="button" class="btn btn-warning"><%= link_to("Edit", {:action => 'edit', :id => restaurant.id}, :class => 'action edit') %></button>
+        <button type="button" class="btn btn-danger"><%= link_to "Delete", 
+        delete_restaurant_path(restaurant.id) %></button>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>

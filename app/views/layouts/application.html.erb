@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rails03Restaurants</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    
+      <nav id=navbar>
+      <button class="btn btn-outline-success my-2 my-sm-0" ><%=link_to "new", new_restaurant_path %></button>
+      <button class="btn btn-outline-success my-2 my-sm-0" ><%=link_to "index", restaurants_path %></button>
+      </nav>
+    
+    <% if !flash[:notice].blank? %>
+       <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <strong><%= flash[:notice] %></strong> 
+        </div> 
+      <% end %>
+
+    <%= yield %>
+  </body>
+</html>
+
+
